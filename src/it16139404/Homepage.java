@@ -1,24 +1,25 @@
 package it16139404;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Signup
+ * Servlet implementation class Homepage
  */
-@WebServlet("/signup")
-public class Signup extends HttpServlet {
+@WebServlet("/Homepage")
+public class Homepage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Signup() {
+    public Homepage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,37 +39,22 @@ public class Signup extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		String[] interests;
-		String interestConcat = "";
+		PrintWriter out=response.getWriter();
 		
-		try
-		{	     		
-			 
-		     MemberBean member = new MemberBean();
-		     member.setUserName(request.getParameter("username"));
-		     member.setDOB(request.getParameter("dob"));
-		     member.setEmail(request.getParameter("email"));
-		     member.setPhoneNumber(request.getParameter("phonenumber"));
-		     member.setAddress(request.getParameter("address"));
-		     member.setPassword(request.getParameter("password"));
-		     
-		     interests = request.getParameterValues("interests");
-		     for(String value : interests)
-		     {
-		    	 interestConcat = interestConcat + " " + value;
-		     }  
-		     
-		     // Add interests
-		     member.setInterest(interestConcat);
+		out.println("<h1> Hello" + request.getParameter("usertype") +" </h1>");
 
-		     MemberDAO.addMemberDetails(member);
-
-		} 	
-		catch (Throwable theException) 	    
-		{
-		     System.out.println(theException); 
-		}
-		
+		 if (request.getParameter("usertype") == "Regular User")
+	     {
+	          response.sendRedirect("userlogin.jsp"); //logged-in page      		
+	     }
+	     else if (request.getParameter("usertype") == "Administrator")
+	     {
+	          response.sendRedirect("adminlogin.jsp"); //logged-in page      		
+	     }
+	     else if (request.getParameter("usertype") == "Owner")
+	     {
+	          response.sendRedirect("login.jsp"); //logged-in page      		
+	     }
 	}
 
 }

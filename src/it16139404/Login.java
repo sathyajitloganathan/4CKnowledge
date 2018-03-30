@@ -41,7 +41,21 @@ public class Login extends HttpServlet {
 		//doGet(request, response);
 		try
 		{	    
-
+			 if (request.getParameter("usertype") == "Regular User")
+		     {
+		          response.sendRedirect("userlogin.jsp"); //logged-in page      		
+		     }
+		     else if (request.getParameter("usertype") == "Administrator")
+		     {
+		          response.sendRedirect("adminlogin.jsp"); //logged-in page      		
+		     }
+		     else if (request.getParameter("usertype") == "Owner")
+		     {
+		          response.sendRedirect("login.jsp"); //logged-in page      		
+		     }
+			 
+			 
+			 
 		     UserBean user = new UserBean();
 		     user.setUserName(request.getParameter("username"));
 		     user.setPassword(request.getParameter("password"));

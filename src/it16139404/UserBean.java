@@ -17,7 +17,6 @@ public class UserBean {
         firstName = newFirstName;
 	}
 
-	
     public String getLastName() {
         return lastName;
 			}

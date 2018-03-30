@@ -19,7 +19,7 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="index.html">4cKnowledge</a>
+				<a class="logo" href="index.jsp">4cKnowledge</a>
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
@@ -30,7 +30,9 @@
 				<ul class="links">
 					<li><a href="index.jsp">Home</a></li>
 					<li><a href="signup.jsp">Sign Up</a></li>
-					<li><a href="login.jsp">Login</a></li>
+					<li><a href="userlogin.jsp">User Login</a></li>
+					<li><a href="adminlogin.jsp">Admin Login</a></li>	
+					<li><a href="login.jsp">Owner Login</a></li>	
 				</ul>
 			</nav>
 
