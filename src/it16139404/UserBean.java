@@ -4,26 +4,18 @@ public class UserBean {
 	
 	private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String type;
     public boolean valid;
 	
 	
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
 	}
 
-    public void setFirstName(String newFirstName) {
-        firstName = newFirstName;
+    public void setName(String newName) {
+        name = newName;
 	}
-
-    public String getLastName() {
-        return lastName;
-			}
-
-    public void setLastName(String newLastName) {
-        lastName = newLastName;
-			}
 			
 
     public String getPassword() {
@@ -42,7 +34,14 @@ public class UserBean {
     public void setUserName(String newUsername) {
         username = newUsername;
 			}
+    
+    public String getType() {
+        return type;
+	}
 
+    public void setType(String newType) {
+        type = newType;
+	}
 				
     public boolean isValid() {
         return valid;

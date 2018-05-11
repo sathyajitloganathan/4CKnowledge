@@ -1,6 +1,8 @@
 package it16139404;
 
 public class MemberBean {
+	private String name;
+	private String uname;
 	private String username;
     private String dob;
     private String phonenumber;
@@ -9,6 +11,21 @@ public class MemberBean {
     private String password;
     private String interest;
 	
+    public String getName() {
+        return name;
+	}
+
+    public void setName(String name) {
+    	this.name = name;
+	}
+    
+    public String getUName() {
+        return uname;
+	}
+
+    public void setUName(String uname) {
+    	this.uname = uname;
+	}
 	
     public String getUserName() {
         return username;

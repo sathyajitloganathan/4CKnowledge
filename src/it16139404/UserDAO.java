@@ -18,9 +18,9 @@ public class UserDAO {
         String username = bean.getUsername();    
         String password = bean.getPassword();   
 	    
-        String searchQuery = "select * from Owner where Username='" + username + "' and Password= '" + password + "'";
+        String searchQuery = "select * from user where username='" + username + "' and password= '" + Encryption.encrypt(password) + "'";
 	    
-	    // "System.out.println" prints in the console; Normally used to trace the process
+	    // "System.out.println" prints in the console; for error checkings
 	    System.out.println("Your user name is " + username);          
 	    System.out.println("Your password is " + password);
 	    System.out.println("Query: "+searchQuery);
@@ -32,7 +32,7 @@ public class UserDAO {
 	       stmt=currentCon.createStatement();
 	       rs = stmt.executeQuery(searchQuery);	        
 	       boolean more = rs.next();
-		       
+
 	       // if user does not exist set the isValid variable to false
 	       if (!more) 
 	       {
@@ -43,11 +43,12 @@ public class UserDAO {
 	       //if user exists set the isValid variable to true
 	       else if (more) 
 	       {
-	          String firstName = rs.getString("Name");
+	          String name = rs.getString("name");
 		     	
-	          System.out.println("Welcome " + firstName);
-	          bean.setFirstName(firstName);
+	          System.out.println("Welcome " + name);
+	          bean.setName(name);
 	          bean.setValid(true);
+	          bean.setType( rs.getString("type"));
 	       }
 	    } 
 	    catch (Exception ex) 
